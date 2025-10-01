@@ -68,9 +68,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->with('roles')->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['Las credenciales son incorrectas.'],
-            ]);
+            return response()->json(['error' => 'Credenciales inválidas'], 401);
         }
 
         // Obtén solo los nombres de los roles
