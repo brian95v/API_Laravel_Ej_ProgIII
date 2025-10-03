@@ -25,6 +25,7 @@ class User extends Authenticatable
         'usNombre',
         'usTelefono',
         'usDomicilio',
+        'usProvincia',
         'usLocalidad',
         'email',
         'password',

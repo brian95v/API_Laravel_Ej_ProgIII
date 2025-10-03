@@ -22,6 +22,7 @@ class AuthController extends Controller
                 'usNombre' => 'required|string',
                 'usTelefono' => 'required|string',
                 'usDomicilio' => 'required|string',
+                'usProvincia' => 'required|string',
                 'usLocalidad' => 'required|string',
             ]);
 
@@ -35,6 +36,7 @@ class AuthController extends Controller
                 'usNombre' => $request->usNombre,
                 'usTelefono' => $request->usTelefono,
                 'usDomicilio' => $request->usDomicilio,
+                'usProvincia' => $request->usProvincia,
                 'usLocalidad' => $request->usLocalidad,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -84,6 +86,7 @@ class AuthController extends Controller
                 'usNombre' =>  $user->usNombre,
                 'usTelefono' => $user->usTelefono,
                 'usDomicilio' => $user->usDomicilio,
+                'usProvincia' => $user->usProvincia,
                 'usLocalidad' => $user->usLocalidad,
                 'email' => $user->email,
                 'email_verified_at' => $user->email_verified_at,
