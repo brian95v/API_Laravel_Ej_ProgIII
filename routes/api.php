@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
         // Rutas para Carreras
         Route::get('carreras', [CarrerasController::class, 'index']);
         Route::get('carrerasWithUC', [CarrerasController::class, 'showWithUC']);
-        //Route::get('/carreras/{id}', [CarrerasController::class, 'show']);
+        Route::get('/carreras/{id}', [CarrerasController::class, 'show']);
 
 
         // Rutas para Unidades Curriculares

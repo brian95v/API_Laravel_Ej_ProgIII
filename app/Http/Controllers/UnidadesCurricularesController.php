@@ -120,8 +120,7 @@ class UnidadesCurricularesController extends Controller
         try {
             $mycarrera = UnidadesCurriculares::destroy($id);
             return response()->json([
-                'message' => 'Unidad Curricular eliminada correctamente',
-                'data' => $mycarrera
+                'message' => 'Unidad Curricular eliminada correctamente'
             ])->setStatusCode(200);
         } catch (\Exception $e) {
             return response()->json([

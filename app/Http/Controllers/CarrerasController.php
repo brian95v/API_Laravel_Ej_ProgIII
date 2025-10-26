@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carreras;
+use App\Models\UnidadesCurriculares;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 
@@ -74,9 +75,16 @@ class CarrerasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Carreras $carreras)
+    public function show($id)
     {
-        //
+        try {
+            return Carreras::with('unidadesCurriculares')->find($id);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Error en la búsqueda',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -127,8 +135,7 @@ class CarrerasController extends Controller
         try {
             $mycarrera = Carreras::destroy($id);
             return response()->json([
-                'message' => 'Carrera eliminada correctamente',
-                'data' => $mycarrera
+                'message' => 'Carrera eliminada correctamente'
             ])->setStatusCode(200);
         } catch (\Exception $e) {
             return response()->json([
