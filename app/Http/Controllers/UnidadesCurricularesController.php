@@ -85,12 +85,13 @@ class UnidadesCurricularesController extends Controller
         try {
             $request->validate([
                 'ucNombre' => 'required|string|max:200',
-                'idCarrera' => 'required|exists:carreras,id'
+                'carrera_id' => 'required|exists:carreras,id'
 
             ]);
 
             $myUnidadCurricular = UnidadesCurriculares::find($id);
             $myUnidadCurricular->ucNombre = $request->ucNombre;
+            $myUnidadCurricular->carrera_id = $request->carrera_id;
             $myUnidadCurricular->save();
 
             return response()->json([
